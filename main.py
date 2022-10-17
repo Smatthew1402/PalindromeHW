@@ -6,6 +6,7 @@ class PalinChecker:
         pass
 
     def isdrome(self, word):
+        word = str(word)
         isdrome = True
         rightqueue = deque([])
         rightqueue = self.fillqueue(word.lower(), rightqueue)
@@ -50,3 +51,9 @@ if __name__ == '__main__':
     print("8. vow , False:", pc.isdrome('vow'))
     print("9. moon , False:", pc.isdrome('moon'))
     print("10. civics , False:", pc.isdrome('civics'))
+    print("Non-Conventional checks:\n")
+    print("12322, False:", pc.isdrome("12322"))
+    print("12321, True:", pc.isdrome("12321"))
+    print("1111111, True:", pc.isdrome('1111111'))
+    print("123456789, False:", pc.isdrome('123456789'))
+    print("Nonetype, False:", pc.isdrome(None))
