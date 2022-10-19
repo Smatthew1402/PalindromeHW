@@ -6,10 +6,10 @@ class PalinChecker:
         pass
 
     def isdrome(self, wordin):
-        word = str(wordin)
+        word = str(wordin).lower()
         isdrome = True
         rightqueue = deque([])
-        rightqueue = self.fillqueue(word.lower(), rightqueue)
+        rightqueue = self.fillqueue(word, rightqueue)
         leftqueue = deque([])
         for num in range(int(len(rightqueue)/2)):
             leftqueue.append(rightqueue.popleft())
