@@ -1,6 +1,3 @@
-from collections import deque
-
-
 class PalinChecker:
     def __init__(self):
         pass
@@ -8,17 +5,16 @@ class PalinChecker:
     def isdrome(self, wordin):
         word = str(wordin).lower()
         isdrome = True
-        rightqueue = deque([])
+        rightqueue = []
         rightqueue = self.fillqueue(word, rightqueue)
-        leftqueue = deque([])
+        leftqueue = []
         for num in range(int(len(rightqueue)/2)):
-            leftqueue.append(rightqueue.popleft())
-        leftqueue.reverse()
+            leftqueue.append(rightqueue.pop())
         if len(word) % 2 == 1:
-            rightqueue.popleft()
+            rightqueue.pop()
         for num in range(len(rightqueue)):
             if isdrome:
-                isdrome = (rightqueue.popleft() == leftqueue.popleft())
+                isdrome = (rightqueue.pop() == leftqueue.pop())
         return isdrome
 
     def fillqueue(self, word, queue):
@@ -30,7 +26,7 @@ class PalinChecker:
 if __name__ == '__main__':
     pc = PalinChecker()
     print("Commencing Positive Tests:\n")
-    print("1. racecar  , True: ", pc.isdrome('racecar'))
+    print("1. racecar  , True:", pc.isdrome('racecar'))
     print("2. kayak    , True:", pc.isdrome('kayak'))
     print("3. deified  , True:", pc.isdrome('deified'))
     print("4. rotator  , True:", pc.isdrome('rotator'))
