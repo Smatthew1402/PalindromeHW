@@ -39,6 +39,9 @@ class Stack:
 
     def __iter__(self):
         return StackIter(self, self.head)
+
+    def __len__(self):
+        return self.count
  
 class StackIter():
     def __init__(self, stack, head):
@@ -70,6 +73,7 @@ if __name__ == '__main__':
     t = Stack()
     t.add('t')
     print(t)
+    print(len(s))
     for i in s:
         print(i)
     print(s)

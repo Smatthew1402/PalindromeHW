@@ -1,3 +1,5 @@
+from Stack import Stack as Stack
+
 class PalinChecker:
     def __init__(self):
         pass
@@ -5,11 +7,11 @@ class PalinChecker:
     def isdrome(self, wordin):
         word = str(wordin).lower()
         isdrome = True
-        rightqueue = []
+        rightqueue = Stack(len(word))
         rightqueue = self.fillqueue(word, rightqueue)
-        leftqueue = []
+        leftqueue = Stack(len(word))
         for num in range(int(len(rightqueue)/2)):
-            leftqueue.append(rightqueue.pop())
+            leftqueue.add(rightqueue.pop())
         if len(word) % 2 == 1:
             rightqueue.pop()
         for num in range(len(rightqueue)):
@@ -19,7 +21,7 @@ class PalinChecker:
 
     def fillqueue(self, word, queue):
         for letter in word:
-            queue.append(letter)
+            queue.add(letter)
         return queue
 
 
